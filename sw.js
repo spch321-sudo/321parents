@@ -1,5 +1,5 @@
-const VERSION='spf321-v1.1.1';
-const CORE=['./','./index.html','./manifest.json','./icons/icon-192.png','./icons/icon-512.png'];
+const VERSION='spf321-v1.1.2';
+const CORE=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png','./apple-touch-icon.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(VERSION).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==VERSION).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 self.addEventListener('fetch',e=>{const u=e.request.url;if(e.request.method!=='GET')return;
