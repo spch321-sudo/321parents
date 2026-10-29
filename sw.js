@@ -1,8 +1,8 @@
 /* 屬靈父母手冊 Service Worker —— 自動更新版（照 321app 技能第 14 節；只清自己前綴的快取） */
 var PFX = 'spf321-';
-var V = PFX + 'v2.2.2610291408';
-var VER = 'v2.2.2610291408';
-var SHELL = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png', './content.zh.json', './content.zs.json', './content.en.json', './lang-zs.json', './lang-en.json', './media.js', './play.js', './card.js'];
+var V = PFX + 'v2.3.2610291440';
+var VER = 'v2.3.2610291440';
+var SHELL = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png', './content.zh.json', './content.zs.json', './content.en.json', './lang-zs.json', './lang-en.json', './media.js', './play.js', './card.js', './course.js', './icon-96.png'];
 self.addEventListener('install', function (e) {
   self.skipWaiting();
   e.waitUntil(caches.open(V).then(function (c) {
