@@ -1,8 +1,8 @@
 /* 屬靈父母手冊 Service Worker —— 自動更新版（照 321app 技能第 14 節；只清自己前綴的快取） */
 var PFX = 'spf321-';
-var V = PFX + 'v2.4.2611022325-xz1103';
-var VER = 'v2.4.2611022325-xz1103';
-var SHELL = ['./', './index.html', './xz2.js', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png', './content.zh.json', './content.zs.json', './content.en.json', './lang-zs.json', './lang-en.json', './media.js', './play.js', './card.js', './course.js', './icon-96.png'];
+var V = PFX + 'v2.4.2611022325-xz1103-au1103';
+var VER = 'v2.4.2611022325-xz1103-au1103';
+var SHELL = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png', './content.zh.json', './content.zs.json', './content.en.json', './lang-zs.json', './lang-en.json', './media.js', './play.js', './card.js', './course.js', './icon-96.png', "./xz2.js"];
 self.addEventListener('install', function (e) {
   self.skipWaiting();
   e.waitUntil(caches.open(V).then(function (c) {
@@ -16,7 +16,7 @@ self.addEventListener('activate', function (e) {
     return self.clients.matchAll({ type: 'window', includeUncontrolled: true });
   }).then(function (cs) {
     cs.forEach(function (c) {
-      try { c.postMessage({ t: 'sw-updated', v: VER }); } catch (x) { }
+      try { if (c.url.indexOf(self.registration.scope) === 0) c.postMessage({ t: 'sw-updated', v: VER }); } catch (x) { }
       if (c.visibilityState === 'hidden' && c.navigate) { try { c.navigate(c.url); } catch (x) { } }
     });
   }));
