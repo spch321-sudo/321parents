@@ -1,7 +1,7 @@
 /* 屬靈父母手冊 Service Worker —— 自動更新版（照 321app 技能第 14 節；只清自己前綴的快取） */
 var PFX = 'spf321-';
-var V = PFX + 'v2.4.2611022325-xz1103-au1103-xzm1103-rf1105-cs1109';
-var VER = 'v2.4.2611022325-xz1103-au1103-xzm1103-rf1105-cs1109';
+var V = PFX + 'v2.4.2611022325-xz1103-au1103-xzm1103-rf1105-cs1109-lg1111';
+var VER = 'v2.4.2611022325-xz1103-au1103-xzm1103-rf1105-cs1109-lg1111';
 var SHELL = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png', './content.zh.json', './content.zs.json', './content.en.json', './lang-zs.json', './lang-en.json', './media.js', './cpar.js', './play.js', './card.js', './course.js', './icon-96.png', "./xz2.js", './xzm.js'];
 self.addEventListener('install', function (e) {
   self.skipWaiting();
